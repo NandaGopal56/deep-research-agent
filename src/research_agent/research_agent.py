@@ -11,9 +11,9 @@ from langgraph.graph import StateGraph, START, END
 from langchain_core.messages import SystemMessage, HumanMessage, ToolMessage, filter_messages
 from langchain.chat_models import init_chat_model
 
-from state_research import ResearcherState, ResearcherOutputState
-from utils import tavily_search, get_today_str, think_tool, format_messages
-from prompts import research_agent_prompt, compress_research_system_prompt, compress_research_human_message
+from src.research_agent.state_research import ResearcherState, ResearcherOutputState
+from src.utils import tavily_search, get_today_str, think_tool, format_messages
+from src.prompts import research_agent_prompt, compress_research_system_prompt, compress_research_human_message
 
 # ===== CONFIGURATION =====
 
