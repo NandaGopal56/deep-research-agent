@@ -20,7 +20,10 @@ from src.scoping.state_scope import AgentState, AgentInputState
 from src.scoping.research_agent_scope import clarify_with_user, write_research_brief
 from src.research_supervisor.multi_agent_supervisor import supervisor_agent
 
+from langgraph.checkpoint.memory import InMemorySaver
 # ===== Config =====
+
+checkpointer = InMemorySaver()
 
 from langchain.chat_models import init_chat_model
 writer_model = init_chat_model(model="openai:gpt-4.1", max_tokens=32000) # model="anthropic:claude-sonnet-4-6", max_tokens=64000
@@ -70,4 +73,4 @@ deep_researcher_builder.add_edge("supervisor_subgraph", "final_report_generation
 deep_researcher_builder.add_edge("final_report_generation", END)
 
 # Compile the full workflow
-agent = deep_researcher_builder.compile()
+agent = deep_researcher_builder.compile(checkpointer=checkpointer)
