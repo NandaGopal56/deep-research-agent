@@ -11,5 +11,6 @@ dependencies = [
     "langgraph>=1.1.9",
     "nest-asyncio>=1.6.0",
     "python-dotenv>=1.2.2",
+    "rich>=15.0.0",
     "tavily>=1.1.0",
 ]
